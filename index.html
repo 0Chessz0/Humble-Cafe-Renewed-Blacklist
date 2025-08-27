@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Server Blacklist</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Server Logo" class="logo">
+    <h1>My Server Blacklist</h1>
+    <p class="subtitle">Keeping our community safe 🚫</p>
+  </header>
+
+  <div class="search-sort">
+    <input type="text" id="searchBox" placeholder="🔍 Search by username...">
+    <select id="sortSelect">
+      <option value="date">🗓️ Sort by Date</option>
+      <option value="username">🔤 Sort by Username</option>
+      <option value="status">⚖️ Sort by Status</option>
+    </select>
+  </div>
+
+  <div id="userGrid"></div>
+
+  <!-- User Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+
+  <!-- Proof Image Modal -->
+  <div id="proofModal" class="modal">
+    <img id="proofImage" src="" alt="Proof">
+  </div>
+
+  <footer>
+    © 2025 My Discord Server | Blacklist System | Made with ❤️ by Admins
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background-color: #0d0d0d;
+  color: #f0f0f0;
+}
+
+header {
+  text-align: center;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #1c1c1c, #121212);
+  border-bottom: 2px solid #333;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+header .logo {
+  width: 90px;
+  border-radius: 50%;
+  border: 3px solid #555;
+  margin-bottom: 10px;
+}
+
+h1 {
+  margin: 10px 0 5px;
+  font-size: 2.5rem;
+  color: #e63946;
+}
+
+.subtitle {
+  color: #aaa;
+}
+
+.search-sort {
+  text-align: center;
+  margin: 20px;
+}
+
+input, select {
+  padding: 10px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  background: #1e1e1e;
+  color: #fff;
+  font-size: 1rem;
+}
+
+#userGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.tile {
+  background: #1c1c1c;
+  padding: 20px;
+  border-radius: 12px;
+  width: 240px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1px solid #2e2e2e;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  text-align: center;
+}
+
+.tile:hover {
+  transform: translateY(-5px);
+  border-color: #e63946;
+  box-shadow: 0 6px 15px rgba(230,57,70,0.4);
+}
+
+.tile img.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 2px solid #444;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #181818;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 700px;
+  color: #fff;
+}
+
+.modal-content img.avatar-large {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #e63946;
+  margin-bottom: 15px;
+}
+
+.modal-content button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background: #e63946;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Proof buttons */
+.proof-buttons button {
+  margin: 5px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 6px;
+  background: #333;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.proof-buttons button:hover {
+  background: #e63946;
+}
+
+/* Proof enlarge modal */
+#proofModal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+#proofModal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  cursor: zoom-in;
+}
+
+/* Zoomed proof */
+#proofModal img.zoomed {
+  transform: scale(1.5);
+  cursor: zoom-out;
+}
+
+/* Footer center */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #111;
+  color: #666;
+  border-top: 1px solid #333;
+  margin-top: 30px;
+  font-size: 0.9rem;
+}
