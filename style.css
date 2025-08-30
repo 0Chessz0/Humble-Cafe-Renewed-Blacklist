@@ -47,23 +47,54 @@ input, select {
 
 #userGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* ✅ prevents squishing */
+  gap: 28px;
   padding: 20px;
+  justify-content: center; 
 }
 
+
+/* Force wrapping earlier on big screens */
+@media (min-width: 1600px) {
+  #userGrid {
+    grid-template-columns: repeat(4, 1fr); /* max 4 per row */
+  }
+}
+
+@media (max-width: 1200px) {
+  #userGrid {
+    grid-template-columns: repeat(3, 1fr); /* 3 per row on medium screens */
+  }
+}
+
+@media (max-width: 800px) {
+  #userGrid {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets */
+  }
+}
+
+@media (max-width: 500px) {
+  #userGrid {
+    grid-template-columns: 1fr; /* 1 per row on mobile */
+  }
+}
 
 .tile {
   background: #1c1c1c;
   padding: 20px;
   border-radius: 12px;
-  width: 240px;
   cursor: pointer;
   transition: 0.3s;
   border: 1px solid #2e2e2e;
   box-shadow: 0 4px 10px rgba(0,0,0,0.4);
   text-align: center;
+
+  /* ✅ Removed fixed width */
+  width: 100%;         /* tile fills its grid cell */
+  max-width: 360px;    /* but won’t grow too wide */
+  margin: 0 auto;      /* centers if smaller */
 }
+
 
 .tile:hover {
   transform: translateY(-5px);
@@ -165,4 +196,38 @@ footer {
   border-top: 1px solid #333;
   margin-top: 30px;
   font-size: 0.9rem;
+}
+
+
+/* Discord Join Button */
+.discord-button {
+  display: inline-block;       /* Makes it behave like a button */
+  margin-top: 10px;            /* Space below subtitle */
+  padding: 12px 24px;          /* Button padding */
+  background-color: #5865F2;   /* Discord blurple */
+  color: white;                 /* Text color */
+  text-decoration: none;        /* Remove underline */
+  border-radius: 6px;           /* Rounded corners */
+  font-weight: bold;            /* Bold text */
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.discord-button:hover {
+  background-color: #4752C4;   /* Darker on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+.discord-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 12px 24px;
+  background-color: #5865F2;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  text-align: center;  /* <-- Add this */
+  transition: background-color 0.3s, transform 0.2s;
 }
