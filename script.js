@@ -3,19 +3,25 @@ async function loadBlacklist() {
     const res = await fetch("blacklist/index.json");
     const { users } = await res.json();
 
-    let allUsers = [];
-    for (let username of users) {
+    // Fire off all requests in parallel
+    const promises = users.map(async username => {
       try {
-        let data = await fetch(`blacklist/${username}/user.json`).then(r => r.json());
+        const data = await fetch(`blacklist/${username}/user.json`).then(r => r.json());
         data.folder = username;
         data.avatarUrl = `blacklist/${username}/pfp.png`; // use local avatar
-        allUsers.push(data);
+        return data;
       } catch (e) {
         console.error(`Error loading ${username}:`, e);
+        return null; // skip on error
       }
-    }
+    });
 
-    window.allUsers = allUsers;
+    // Wait for all of them to finish
+    const results = await Promise.all(promises);
+
+    // Filter out any failed loads
+    window.allUsers = results.filter(Boolean);
+
     sortAndDisplay("date");
   } catch (err) {
     console.error("Error loading index.json", err);
