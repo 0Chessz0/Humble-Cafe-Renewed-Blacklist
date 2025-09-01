@@ -231,3 +231,25 @@ footer {
   text-align: center;  /* <-- Add this */
   transition: background-color 0.3s, transform 0.2s;
 }
+
+/* Make modal content responsive on mobile */
+.modal-content {
+  width: 90%;
+  max-width: 700px;
+  word-wrap: break-word; /* prevent text overflow */
+  overflow-x: auto; /* allow scrolling if needed */
+}
+
+/* Proof image scaling on mobile */
+#proofModal img {
+  width: 100%;
+  height: auto;
+  max-width: 95%;
+  max-height: 80vh;
+}
+
+/* Ensure grid tiles don’t overflow */
+.tile {
+  max-width: 100%;
+  box-sizing: border-box;
+}
