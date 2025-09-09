@@ -240,13 +240,13 @@ footer {
   overflow-x: auto; /* allow scrolling if needed */
 }
 
-/* Proof image scaling on mobile */
 #proofModal img {
-  width: 100%;
-  height: auto;
   max-width: 95%;
   max-height: 80vh;
+  height: auto;
+  width: auto; /* keep natural aspect ratio */
 }
+
 
 /* Ensure grid tiles don’t overflow */
 .tile {
